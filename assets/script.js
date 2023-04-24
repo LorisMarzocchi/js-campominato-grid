@@ -17,3 +17,67 @@ Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dat
 Le validazioni e i controlli possiamo farli anche in un secondo momento.
 
 */
+
+const btnPlay = document.querySelector('#btnPlay');
+
+
+btnPlay.addEventListener("click", function() {
+    const containerCard = document.querySelector('.container');
+    const level = document.getElementById("level");
+    
+    if (level.value == "Easy") {
+        containerCard.classList.remove("easy", "hard", "crazy");
+        containerCard.classList.add("easy"); 
+        griglia(100, containerCard);
+    }
+    else if(level.value == "Hard"){
+        containerCard.classList.remove("easy", "hard", "crazy");
+        containerCard.classList.add("hard");
+        griglia(81, containerCard);
+    }
+    else if(level.value == "Crazy"){
+        containerCard.classList.remove("easy", "hard", "crazy");
+        containerCard.classList.add("crazy");
+        griglia(49, containerCard);
+    }
+    
+    function griglia(numCard, containerCard) {
+        containerCard.innerHTML = "";
+        for (let i = 1; i < numCard + 1; i++) {
+            containerCard.innerHTML += `<div class="cell">${i}</div>`;
+            
+            
+        } 
+    }
+    const listCard = document.querySelectorAll('.cell');
+    for (let i = 0; i < listCard.length; i++) {
+        const cell = listCard[i];
+        cell.addEventListener('click', function(){
+            this.classList.toggle("clicked");
+        })
+        
+    }
+    
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// GENERARE UNA GRIGLIA
+// function createGrid(numCells, eleContainer) {
+//     eleContainer.innerHTML = "";
+// 	for (let i = 1; i < numCells + 1; i++) {
+// 		eleContainer.innerHTML += `<div class="cell">${i}</div>`;
+// 	}
+// }
+
