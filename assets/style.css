@@ -26,6 +26,7 @@ header{
     margin: auto;
     background-color: green;
     height: 100%;
+   
   
 }
 .cell{
@@ -34,6 +35,11 @@ header{
     background-color: red;
     margin: 5px;
     text-align: center;
+    border-radius: 5px;
+    position: relative;
+   
+   
+    
 }
 .easy{
    max-width: 1100px;
@@ -50,10 +56,44 @@ header{
 .clicked{
     background-color: blue;
     color: white;
+    animation: bounce-in 1.5s ease;
 }
+@keyframes bounce-in {
+    0% {
+      opacity: 0;
+      transform: scale(.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    70% { transform: scale(.9); }
+    100% { transform: scale(1); }
+}
+
 .color2{
     background-color: aquamarine;
+    color: black;
+    animation-duration: 1s;
+    animation: gelatine 0.5s;
 }
+@keyframes gelatine {
+    from, to { transform: scale(1, 1); }
+    25% { transform: scale(0.9, 1.1); }
+    50% { transform: scale(1.1, 0.9); }
+    75% { transform: scale(0.95, 1.05); }
+}
+
+.color3{
+    background-color: orange;  
+    animation: spin 0.5s linear;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
 .logo{
     display: flex;
     justify-content: center;

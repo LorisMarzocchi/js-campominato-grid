@@ -41,29 +41,33 @@ btnPlay.addEventListener("click", function() {
         griglia(49, containerCard);
     }
     
-    function griglia(numCard, containerCard) {
-        containerCard.innerHTML = "";
-        for (let i = 1; i < numCard + 1; i++) {
-            containerCard.innerHTML += `<div class="cell">${i}</div>`;
-            
-            
-        } 
-    }
     const listCard = document.querySelectorAll('.cell');
-
+    
     for (let i = 0; i < listCard.length; i++) {
         const cell = listCard[i];
         cell.addEventListener('click', function(){
             this.classList.toggle("clicked");
+            if(level.value == "Hard"){
+              
+                this.classList.toggle("color3");
+            }
             
             if (level.value == "Crazy") {
-                cell.classList.remove("clicked");
-                cell.classList.add("color2");
+                
+                this.classList.toggle("color2");
             }
         })
         
     }
 });
+function griglia(numCard, containerCard) {
+    containerCard.innerHTML = "";
+    for (let i = 1; i < numCard + 1; i++) {
+        containerCard.innerHTML += `<div class="cell">${i}</div>`;
+        
+        
+    } 
+}
 
 
 
