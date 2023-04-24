@@ -50,14 +50,19 @@ btnPlay.addEventListener("click", function() {
         } 
     }
     const listCard = document.querySelectorAll('.cell');
+
     for (let i = 0; i < listCard.length; i++) {
         const cell = listCard[i];
         cell.addEventListener('click', function(){
             this.classList.toggle("clicked");
+            
+            if (level.value == "Crazy") {
+                cell.classList.remove("clicked");
+                cell.classList.add("color2");
+            }
         })
         
     }
-    
 });
 
 
@@ -71,13 +76,4 @@ btnPlay.addEventListener("click", function() {
 
 
 
-
-
-// GENERARE UNA GRIGLIA
-// function createGrid(numCells, eleContainer) {
-//     eleContainer.innerHTML = "";
-// 	for (let i = 1; i < numCells + 1; i++) {
-// 		eleContainer.innerHTML += `<div class="cell">${i}</div>`;
-// 	}
-// }
 
